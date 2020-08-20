@@ -1,6 +1,6 @@
 #!/bin/bash
 # Inspired by: github.com/thelinuxchoice/saycheese
-# Modified by: github.com/kinghacker0/WishPhish
+# Modified by: https://github.com/mrvanonmus
 
 trap 'printf "\n";stop' 2
 
@@ -13,8 +13,8 @@ echo -e "\033[31m | |\/| |  _  / \ \/ /   \e[0m \___ \  \   / |  _  /  | |   / /
 echo -e "\033[31m | |  | | | \ \  \  /    \e[0m ____) |  | |  | | \ \ _| |_ / ____ \      ";
 echo -e "\033[31m |_|  |_|_|  \_\  \/     \e[0m|_____/   |_|  |_|  \_\_____/_/    \_\ v2.0";
 
-printf "\e[1;77m Website :- www.hackersking.in \e[0m \n"
-printf "\e[1;77m v2.0 Coded By github.com/kinghacker0 \e[0m \n"
+printf "\e[1;77m insta :- Qais alhamawi \e[0m \n"
+printf "\e[1;77m v2.0 Coded By github.com/mrvanonmus \e[0m \n"
 
 }
 
